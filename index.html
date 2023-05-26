@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Selección de Nivel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000000;
+      color: #FFFFFF;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    h1 {
+      font-size: 40px;
+    }
+
+    .button {
+      display: inline-block;
+      margin: 10px;
+      padding: 20px 40px;
+      background-color: #FFFFFF;
+      color: #000000;
+      font-size: 24px;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #AAAAAA;
+    }
+
+    .input {
+      display: block;
+      margin-top: 20px;
+      font-size: 24px;
+      padding: 10px;
+    }
+
+    .submit-button {
+      margin-top: 20px;
+      font-size: 24px;
+      padding: 10px 20px;
+      background-color: #FFFFFF;
+      color: #000000;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+      background-color: #AAAAAA;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ingrese el nivel de dificultad (entre 1 y 10):</h1>
+  <form id="level-form">
+    <input class="input" type="number" id="level-input" min="1" max="10" required>
+    <input class="submit-button" type="submit" value="Iniciar Juego">
+  </form>
+
+  <script>
+    document.getElementById("level-form").addEventListener("submit", function(event) {
+      event.preventDefault(); // Evitar el envío del formulario
+
+      var level = document.getElementById("level-input").value;
+      if (level >= 1 && level <= 10) {
+        var url = "nivel-" + level + ".html";
+        window.location.href = url;
+      } else {
+        alert("El nivel de dificultad debe estar entre 1 y 10.");
+      }
+    });
+  </script>
+</body>
+</html>
